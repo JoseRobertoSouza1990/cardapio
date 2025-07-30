@@ -1,0 +1,414 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff8f0;
+  color: #333;
+  line-height: 1.5;
+}
+
+header {
+  background-color: #ffcb05;
+  color: #1a1a1a;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+.menu-horizontal {
+  
+  display: flex;
+  list-style: none;
+  padding-top: 10px;
+  margin: 0;
+  gap: 20px; /* Espaço entre os itens */
+  justify-content: center; /* Alinha ao centro */
+}
+
+.menu-horizontal a {
+  
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-horizontal a:hover {
+  color: #e67300; /* Cor ao passar o mouse */
+ 
+}
+
+.menu {
+  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 280px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.item h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.item p {
+  flex-grow: 1;
+  margin: 0 0 10px;
+  color: #555;
+}
+
+.item span {
+  font-weight: bold;
+  color: #e07a00;
+  font-size: 1.1rem;
+}
+
+.item button {
+  margin-top: 10px;
+  background-color: #ffcb05;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.item button:hover,
+.item button:focus {
+  background-color: #e6b800;
+  outline: none;
+}
+
+/* Controles de quantidade nos produtos - todos do mesmo tamanho e alinhados à esquerda/base */
+.quantity-control {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  margin-top: 16px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.quantity-control input[type="number"] {
+  width: 54px;
+  height: 54px;
+  text-align: center;
+  font-size: 1.4em;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  background: #fff;
+  margin: 0 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botão de menos (verde) */
+.quantity-control button[aria-label="Diminuir quantidade"] {
+  background-color: #27ae60;
+  border: 2px solid #219150;
+  color: #fff;
+  width: 54px;
+  height: 54px;
+  font-size: 1.4em;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.quantity-control button[aria-label="Diminuir quantidade"]:hover,
+.quantity-control button[aria-label="Diminuir quantidade"]:focus {
+  background-color: #219150;
+}
+
+/* Botão de mais (vermelho) */
+.quantity-control button[aria-label="Aumentar quantidade"] {
+  background-color: #e74c3c;
+  border: 2px solid #c0392b;
+  color: #fff;
+  width: 54px;
+  height: 54px;
+  font-size: 1.4em;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.quantity-control button[aria-label="Aumentar quantidade"]:hover,
+.quantity-control button[aria-label="Aumentar quantidade"]:focus {
+  background-color: #c0392b;
+}
+
+/* Botão Adicionar padrão - mesmo tamanho dos botões de mais e menos */
+.quantity-control button:not([aria-label]) {
+  background-color: #ffcb05;
+  border: 2px solid #e6b800;
+  color: #1a1a1a;
+  font-size: 1.2em;
+  width: 54px;
+  height: 54px;
+  margin-left: 0;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantity-control button:not([aria-label]):hover,
+.quantity-control button:not([aria-label]):focus {
+  background-color: #e6b800;
+}
+
+/* Carrinho */
+.cart {
+  background-color: #fff;
+  border-top: 2px solid #eee;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+
+.cart h2 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.cart-icon-btn {
+  display: none;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.cart li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.cart li:last-child {
+  margin-bottom: 0;
+}
+
+.remove-btn {
+  margin-left: 10px;
+  padding: 4px 12px;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+.remove-btn:hover,
+.remove-btn:focus {
+  background: #c0392b;
+}
+
+#total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Botão WhatsApp */
+.zap {
+  display: block;
+  margin: 20px auto 10px;
+  width: fit-content;
+  background-color: #25d366;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.zap:hover,
+.zap:focus {
+  background-color: #1ebe57;
+  outline: none;
+}
+
+.zap.disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Botão Pagar via Pix */
+#pix-button {
+  display: block;
+  margin: 10px auto 0;
+  background-color: #ffcb05;
+  color: #1a1a1a;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#pix-button:disabled,
+#pix-button[aria-disabled="true"] {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+#pix-button:hover:not(:disabled),
+#pix-button:focus:not(:disabled) {
+  background-color: #e6b800;
+  outline: none;
+}
+
+footer {
+  background-color: #ffcb05;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  main {
+    margin: 10px;
+    padding: 0 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .item {
+    max-width: 100%;
+    margin-bottom: 18px;
+    padding: 12px;
+  }
+
+  .quantity-control {
+    align-items: flex-end;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .quantity-control input[type="number"] {
+    width: 40px;
+    height: 36px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .quantity-control button[aria-label="Diminuir quantidade"],
+  .quantity-control button[aria-label="Aumentar quantidade"],
+  .quantity-control button:not([aria-label]) {
+    width: 40px;
+    height: 36px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    padding: 0;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zap,
+  #pix-button {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  .cart {
+    padding: 12px;
+  }
+  .cart li {
+    padding: 6px 8px;
+    font-size: 0.98em;
+  }
+}
+
+/* Limite visual para input de quantidade */
+.quantity-control input[type="number"]::-webkit-inner-spin-button,
+.quantity-control input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Feedback visual ao adicionar ao carrinho */
+@keyframes add-feedback {
+  0% { box-shadow: 0 0 0 0 #27ae60; }
+  50% { box-shadow: 0 0 8px 4px #27ae60; }
+  100% { box-shadow: 0 0 0 0 #27ae60; }
+}
+.added-to-cart {
+  animation: add-feedback 0.6s;
+}
+
+.mensagem-pagamento {
+ color: #c0392b;
+}
+.adicionar-carrinho.clicado {
+  box-shadow: 0 0 10px 2px #4caf50;
+  transition: box-shadow 0.3s ease;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doces</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Doces</h1>
+    <p>Selecione o doce que vai adoçar sua noite!</p>
+  </header>
+
+  <div id="menu-container"></div>
+  <nav class="menu-fixo" aria-label="Menu principal">
+  <ul class="menu-horizontal">
+    <li><a href="index.html">Produtos</a></li>
+    <li><a href="bebidas.html">Bebidas</a></li>
+    <li><a href="doces.html">Doces</a></li>
+  </ul>
+</nav>
+
+  <main>
+    <section class="menu" aria-label="Cardápio de Doces">
+      <article class="item">
+        <h2>Alfajor</h2>
+        <p>Pastel crocante recheado com carne moída e temperos especiais.</p>
+        <span>R$ 8,00</span>
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity('carne', -1)" aria-label="Diminuir quantidade">-</button>
+          <input type="number" id="qty-carne" value="1" min="1" readonly />
+          <button type="button" onclick="changeQuantity('carne', 1)" aria-label="Aumentar quantidade">+</button>
+          <button
+            type="button"
+            class="add-btn"
+            data-name="Alfajor"
+            data-price="8.00"
+            data-produto-id="carne"
+            aria-label="Adicionar Alfajor ao carrinho"
+          >
+            Adicionar <span class="cart-icon-btn">🛒</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="item">
+        <h2>Trufa de Leite ninho</h2>
+        <p>Recheio com muito queijo derretido. Um clássico irresistível.</p>
+        <span>R$ 7,50</span>
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity('queijo', -1)" aria-label="Diminuir quantidade">-</button>
+          <input type="number" id="qty-queijo" value="1" min="1" readonly />
+          <button type="button" onclick="changeQuantity('queijo', 1)" aria-label="Aumentar quantidade">+</button>
+          <button
+            type="button"
+            class="add-btn"
+            data-name="Trufa de Leite ninho"
+            data-price="7.50"
+            data-produto-id="queijo"
+            aria-label="Adicionar Trufa de Leite ninho ao carrinho"
+          >
+            Adicionar <span class="cart-icon-btn">🛒</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="item">
+        <h2>Barra de chocolate</h2>
+        <p>Frango desfiado com catupiry cremoso.</p>
+        <span>R$ 9,00</span>
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity('frango', -1)" aria-label="Diminuir quantidade">-</button>
+          <input type="number" id="qty-frango" value="1" min="1" readonly />
+          <button type="button" onclick="changeQuantity('frango', 1)" aria-label="Aumentar quantidade">+</button>
+          <button
+            type="button"
+            class="add-btn"
+            data-name="Barra de chocolate"
+            data-price="9.00"
+            data-produto-id="frango"
+            aria-label="Adicionar Barra de chocolate ao carrinho"
+          >
+            Adicionar <span class="cart-icon-btn">🛒</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- CARRINHO DE COMPRAS -->
+    <section class="cart" aria-label="Carrinho de compras">
+      <h2>
+        <span class="cart-icon" aria-hidden="true">🛒</span> Carrinho
+      </h2>
+      <ul id="cart-items" aria-live="polite" aria-relevant="additions removals"></ul>
+      <p id="total" aria-live="polite">Total: R$ 0,00</p>
+      <a
+        id="whatsapp-link"
+        class="zap disabled"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Enviar pedido pelo WhatsApp"
+        aria-disabled="true"
+      >
+        Carrinho vazio
+      </a>
+      <button
+        id="pix-button"
+        disabled
+        type="button"
+        aria-disabled="true"
+        title="Faça seu pedido antes de pagar via Pix"
+      >
+        Pagar via Pix
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Funcionamento: Quarta a Domingo - 18h30 às 22h</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

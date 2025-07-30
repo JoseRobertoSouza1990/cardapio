@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagamento Pix</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Pagamento via Pix</h1>
+    <p>Finalize o pagamento usando o QR Code ou a chave Pix abaixo:</p>
+  </header>
+
+  <main>
+    <div id="menu-container"></div>
+
+    <section class="pix">
+      <img src="qrcode-pix-exemplo.png" alt="QR Code Pix" class="qrcode" />
+      <p><strong>Chave Pix:</strong> 5516994451101</p>
+      <p>Valor a pagar: <span id="valor-pix">R$ 0,00</span></p>
+      <a class="zap" href="index.html">Voltar ao Cardápio</a>
+    </section>
+  </main>
+
+  <footer class="mensagem-pagamento">
+    <p><strong>Após o pagamento, envie o comprovante via WhatsApp</strong>.</p>
+  </footer>
+
+  <script>
+    fetch('menu.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('menu-container').innerHTML = html;
+      });
+
+    const valor = new URLSearchParams(window.location.search).get('valor');
+    if (valor) {
+      document.getElementById('valor-pix').textContent = `R$ ${parseFloat(valor).toFixed(2).replace('.', ',')}`;
+    }
+  </script>
+</body>
+</html>

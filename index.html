@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pastel- Cardápio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Cardápio Online</h1>
+    <p>Confira nosso cardápio e adicione ao carrinho!</p>
+  </header>
+
+  <div id="menu-container"></div>
+
+
+
+  </main>
+
+  <main>
+    <section class="menu" aria-label="Cardápio de Pastéis">
+      <article class="item">
+        <h2>Pastel de Carne</h2>
+        <p>Pastel crocante recheado com carne moída e temperos especiais.</p>
+        <span>R$ 8,00</span>
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity('carne', -1)" aria-label="Diminuir quantidade">-</button>
+          <input type="number" id="qty-carne" value="1" min="1" readonly />
+          <button type="button" onclick="changeQuantity('carne', 1)" aria-label="Aumentar quantidade">+</button>
+          <button
+            type="button"
+            onclick="addToCart('Pastel de Carne', 8.00, getQuantity('carne'))"
+            aria-label="Adicionar Pastel de Carne ao carrinho"
+            class="add-btn"
+          >
+            Adicionar <span class="cart-icon-btn">🛒</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="item">
+        <h2>Pastel de Queijo</h2>
+        <p>Recheio com muito queijo derretido. Um clássico irresistível.</p>
+        <span>R$ 7,50</span>
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity('queijo', -1)" aria-label="Diminuir quantidade">-</button>
+          <input type="number" id="qty-queijo" value="1" min="1" readonly />
+          <button type="button" onclick="changeQuantity('queijo', 1)" aria-label="Aumentar quantidade">+</button>
+          <button
+            type="button"
+            onclick="addToCart('Pastel de Queijo', 7.50, getQuantity('queijo'))"
+            aria-label="Adicionar Pastel de Queijo ao carrinho"
+            class="add-btn"
+          >
+            Adicionar <span class="cart-icon-btn">🛒</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="item">
+        <h2>Pastel de Frango com Catupiry</h2>
+        <p>Frango desfiado com catupiry cremoso.</p>
+        <span>R$ 9,00</span>
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity('frango', -1)" aria-label="Diminuir quantidade">-</button>
+          <input type="number" id="qty-frango" value="1" min="1" readonly />
+          <button type="button" onclick="changeQuantity('frango', 1)" aria-label="Aumentar quantidade">+</button>
+          <button
+            type="button"
+            onclick="addToCart('Pastel de Frango com Catupiry', 9.00, getQuantity('frango'))"
+            aria-label="Adicionar Pastel de Frango com Catupiry ao carrinho"
+            class="add-btn"
+          >
+            Adicionar <span class="cart-icon-btn">🛒</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+<!--CARRINHO DE COMPRAS-->
+   <div id="cart-container"></div>
+
+  </main>
+<script>
+  fetch('carrinho.html')
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById('cart-container').innerHTML = html;
+    });
+</script>
+
+  <footer>
+    <p></p>
+    <p>Funcionamento: Qua a Dom - 18h30 às 22h</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    fetch('menu.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('menu-container').innerHTML = html;
+      });
+  </script>
+</body>
+</html>
